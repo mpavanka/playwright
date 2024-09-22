@@ -1,4 +1,4 @@
-package automation;
+package automationTestNg;
 
 import com.microsoft.playwright.Browser;
 import com.microsoft.playwright.BrowserType;
@@ -8,7 +8,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-public class openGoogletestNg {
+public class openGoogle {
 
     static Page page;
     static Browser browser;

@@ -3,7 +3,7 @@
 <suite name="google" >
     <test name="googlesearch">
         <classes>
-            <class name="automation.openGoogletestNg"></class>
+            <class name="automationTestNg.openGoogle"></class>
         </classes>
     </test>
 </suite>

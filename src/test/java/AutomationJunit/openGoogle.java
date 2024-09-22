@@ -1,4 +1,4 @@
-package automation;
+package AutomationJunit;
 
 import com.microsoft.playwright.Browser;
 import com.microsoft.playwright.BrowserType;
@@ -8,7 +8,7 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-public class openGoogleJunit {
+public class openGoogle {
 
     static Page page;
     static Browser browser;
