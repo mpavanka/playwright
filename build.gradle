@@ -13,6 +13,8 @@ repositories {
 dependencies {
     testImplementation platform('org.junit:junit-bom:5.10.0')
     testImplementation 'org.junit.jupiter:junit-jupiter'
+    testImplementation 'org.testng:testng:7.9.0'
+
 
 }
 
@@ -33,17 +35,7 @@ task playwright(type: JavaExec) {
     mainClass = 'com.microsoft.playwright.CLI'
 }
 
-task cucumber() {
-    dependsOn assemble, compileTestJava
-    doLast {
-        javaexec {
-            main = "io.cucumber.core.cli.Main"
-            classpath = configurations.cucumberRuntime + sourceSets.main.output + sourceSets.test.output
-            args = ['--plugin', 'html:reports/test-report', '--plugin', 'pretty', '--glue', 'com.hmtmcse.tutorial', 'src/test/resources']
-        }
-    }
-}
-
 test {
     useJUnitPlatform()
+    useTestNG()
 }

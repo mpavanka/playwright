@@ -23,7 +23,6 @@ public class sampleTest {
         System.out.println(name);
         page.close();
         browser.close();
-        System.exit(0);
     }
 
     public static void main(String[] args) {
