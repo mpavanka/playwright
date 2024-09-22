@@ -36,6 +36,6 @@ task playwright(type: JavaExec) {
 }
 
 test {
-    useJUnitPlatform()
+//    useJUnitPlatform()
     useTestNG()
 }
