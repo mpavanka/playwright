@@ -1,5 +1,3 @@
-package automation;
-
 import com.microsoft.playwright.Browser;
 import com.microsoft.playwright.BrowserType;
 import com.microsoft.playwright.Page;
@@ -24,10 +22,13 @@ public class sampleTest {
         String name = page.locator("[class='FLP8od']").textContent();
         System.out.println(name);
         page.close();
+        browser.close();
+        System.exit(0);
     }
 
     public static void main(String[] args) {
         sampleTest sampleTest = new sampleTest();
         sampleTest.searchForGoogleCeo();
     }
+
 }
