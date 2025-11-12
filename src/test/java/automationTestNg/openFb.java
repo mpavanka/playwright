@@ -1,12 +1,17 @@
 package automationTestNg;
 
 import com.microsoft.playwright.*;
+import com.microsoft.playwright.Browser;
+import com.microsoft.playwright.BrowserType;
+import com.microsoft.playwright.Page;
+import com.microsoft.playwright.Playwright;
+import com.microsoft.playwright.options.LoadState;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-public class openGoogle {
+public class openFb {
 
     static Page page;
     static Browser browser;
@@ -34,21 +39,15 @@ public class openGoogle {
     }
 
     @Test
-    public void searchForGoogleCeo() {
-        // Navigate to Google and search for "GOOGLE CEO"
-        page.navigate("https://www.google.com");
-        page.fill("[name='q']", "GOOGLE CEO");
-        page.keyboard().press("Enter");
-        String name = page.locator("[class='FLP8od']").textContent();
-        System.out.println(name);
-    }
-
-    @Test(dependsOnMethods="searchForGoogleCeo")
-    public void clickOnInstaLink() throws Throwable {
-        page.evaluate("window.scrollBy(0, 1000)");
-        page.waitForSelector("//*[@id=\"rso\"]/div[3]/div/div/div[1]/div/div/span/a/h3", new Page.WaitForSelectorOptions().setTimeout(5000));
-        page.locator("[class=\"uq_cd\"]").click();
-        String errorMessage = page.locator("[class=\"eu_h\"]").textContent();
-        Assert.assertEquals(errorMessage, "D22", "We got permission to see google CEO profile in linkedIN");
+    public void openFacebook() {
+        page.navigate("https://www.facebook.com");
+        page.locator("input#email").click();
+        page.fill("input#email", "testuser");
+        page.locator("input#pass").click();
+        page.fill("input#pass", "password");
+        page.locator("button[name='login']").click();
+        page.waitForLoadState(LoadState.NETWORKIDLE);
+        String title = page.title();
+        Assert.assertEquals(title, "Facebook", "Facebook home page is not opened");
     }
 }

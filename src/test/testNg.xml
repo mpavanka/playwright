@@ -1,9 +1,11 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
 
-<suite name="google" >
+<suite name="google" parallel="classes" thread-count="4">
     <test name="googlesearch">
         <classes>
-            <class name="automationTestNg.openGoogle"></class>
+            <class name="automationTestNg.openGle"></class>
+            <class name="automationTestNg.openFb"></class>
+            <class name="automationTestNg.openYT"></class>
         </classes>
     </test>
 </suite>

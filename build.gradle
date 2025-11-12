@@ -14,7 +14,13 @@ dependencies {
     testImplementation platform('org.junit:junit-bom:5.10.0')
     testImplementation 'org.junit.jupiter:junit-jupiter'
     testImplementation 'org.testng:testng:7.9.0'
-
+    testImplementation 'com.beust:jcommander:1.82'
+//    testImplementation 'cucumber:cucumber-java:7.11.2'
+//    testImplementation 'cucumber:cucumber-testng:7.31.0'
+//    // https://mvnrepository.com/artifact/io.cucumber/cucumber-testng
+    implementation 'io.cucumber:cucumber-testng:7.31.0'
+    testImplementation 'io.cucumber:cucumber-junit-platform-engine:7.31.0'
+    implementation 'io.cucumber:cucumber-java:7.31.0'
 
 }
 
