@@ -1,3 +1,4 @@
+@smoke
 Feature: login FB
     Scenario: login with valid credentials
         Given I open the Facebook login page

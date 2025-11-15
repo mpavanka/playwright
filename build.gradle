@@ -11,19 +11,22 @@ repositories {
 }
 
 dependencies {
+
     testImplementation platform('org.junit:junit-bom:5.10.0')
     testImplementation 'org.junit.jupiter:junit-jupiter'
     testImplementation 'org.testng:testng:7.9.0'
-    testImplementation 'com.beust:jcommander:1.82'
-//    testImplementation 'cucumber:cucumber-java:7.11.2'
-//    testImplementation 'cucumber:cucumber-testng:7.31.0'
-//    // https://mvnrepository.com/artifact/io.cucumber/cucumber-testng
-    implementation 'io.cucumber:cucumber-testng:7.31.0'
     testImplementation 'io.cucumber:cucumber-junit-platform-engine:7.31.0'
     implementation 'io.cucumber:cucumber-java:7.31.0'
-
+    testImplementation 'org.junit.platform:junit-platform-suite-api:1.10.0'
+    testImplementation 'org.slf4j:slf4j-jdk14:2.0.7'
+    implementation 'com.microsoft.playwright:playwright:1.46.0'
+    testImplementation 'junit:junit:4.13.2'
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.11.0'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher:1.11.0'
+    testImplementation 'io.cucumber:cucumber-junit:7.18.1'
 }
 
+// Tell Gradle to use the JUnit Platform so @Suite / Cucumber platform engine are discovered
 test {
     useJUnitPlatform()
 }
@@ -36,12 +39,7 @@ application {
     mainClass = 'sampleTest'
 }
 
-task playwright(type: JavaExec) {
+tasks.register('playwright', JavaExec) {
     classpath sourceSets.test.runtimeClasspath
     mainClass = 'com.microsoft.playwright.CLI'
-}
-
-test {
-//    useJUnitPlatform()
-    useTestNG()
 }
